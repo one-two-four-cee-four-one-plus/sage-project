@@ -1,0 +1,22 @@
+{% load static %}
+<html>
+  <head>
+  </head>
+  <body>
+    <script src={% static 'base/loader.js' %}></script>
+    <script defer>
+      const Loader = new ResourceLoader({% static '' %});
+      const cb = () => {
+          editor('editor_id');
+      };
+      Loader.any([
+          'base/component.js',
+          'base/eventor.js',
+          'base/helpers.js',
+          'editor/styles.css',
+          'editor/editor.js',
+      ], cb);
+    </script>
+    <div id="editor_id"></div>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 20px;
+}
+
+.focused {
+    border: 2px solid green;
+}
+
+.unfocused {
+    border: 2px solid black;
+}
+
+.wrap {
+    overflow-wrap: break-word;
+}
+
+.mono {
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+.inverted {
+    color: white;
+    background-color: black;
+}
