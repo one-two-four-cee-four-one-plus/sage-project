@@ -16,9 +16,9 @@ function ResourceLoader(root) {
             } else {
                 console.log(url);
             }
-        }
+        };
         xhr.send();
-    }
+    };
 
     this.fetch_ = (resources) => {
         if (!resources.length)
@@ -31,14 +31,14 @@ function ResourceLoader(root) {
                 if (n == top.length) {
                     this.fetch(resources);
                 }
-            })
-        })
-    }
+            });
+        });
+    };
 
     this.fetch = (resources, any=null) => {
         if (any)
             any.map(this.load);
         let copy = Object.assign([], resources);
         this.fetch_(copy);
-    }
+    };
 }

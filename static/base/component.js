@@ -11,30 +11,30 @@ function Component(domel, initial_state) {
         let last = prev.pop();
 
         let point = this.state;
-        prev.map(el => { point = point[el] });
+        prev.map(el => { point = point[el]; });
 
         if (cb)
             return point[last] = cb(point[last]);
         return point[last];
-    }
+    };
 
     this.register = (renderer) => {
         this.renderer = renderer;
         this.render();
-    }
+    };
 
     this.render = () => {
         this.domel.textContent = '';
         this.renderer(this.state, this.domel);
-    }
+    };
 
     this.atomic = (path, action) => {
         this.dig(path, action);
         this.render();
-    }
+    };
 
     this.batch = (pairs) => {
         pairs.map(([path, action]) => this.dig(path, action));
         this.render();
-    }
+    };
 }

@@ -8,17 +8,17 @@ const on = (function () {
 
         this.handler = e => {
             this.action(e);
-        }
+        };
 
         document.addEventListener(this.type, this.handler);
 
         this.set = (action) => {
             this.action = action;
-        }
+        };
 
         this.forget = () => {
             this.target.removeEventListener(this.type, this.handle);
-        }
+        };
     }
 
     function ConditionalListener(type, target=document) {
@@ -44,15 +44,15 @@ const on = (function () {
 
         this.add = (condition, action) => {
             this.pairs.push([condition, action]);
-        }
+        };
 
         this.forget = () => {
             this.target.removeEventListener(this.type, this.handle);
-        }
+        };
     }
     
     function EventDispatcher() {
-        this.mapping = {}
+        this.mapping = {};
 
         this.on = (type, target=document) => {
             return {
@@ -66,7 +66,7 @@ const on = (function () {
                         this.mapping[type].default = action;
                     }
                 },
-                when: (condition, ) => {
+                when: (condition) => {
                     return {
                         do: (action) => {
                             if (this.mapping[type] === undefined) {
@@ -79,17 +79,17 @@ const on = (function () {
                                 console.error("mixing of conditional and unconditional handlers for ${type}");
                             }
                         }
-                    }
+                    };
                 }
             };
-        }
+        };
     }
 
     const propogate = (method) => {
         if (!instance)
             instance = new EventDispatcher();
         return instance[method];
-    }
+    };
 
-    return propogate('on')
+    return propogate('on');
 })();
